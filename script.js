@@ -1,5 +1,5 @@
 /**@type {HTMLCanvasElement} */
-
+let start = new Audio( "sfx/start.m4a" )
 start.play()
 const canvas = document.getElementById( "screen" );
 const ctx = canvas.getContext( "2d" );
@@ -36,7 +36,7 @@ p2Hp.style.backgroundColor = "red"
 
 let hit = new Audio( "sfx/hit.m4a" );
 let hitR = new Audio( "sfx/hit.m4a" );
-let start = new Audio( "sfx/start.m4a" )
+
 let gameOver = new Audio( "sfx/gameOver.m4a" )
 
 const graviy = 1;
