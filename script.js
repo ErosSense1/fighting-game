@@ -728,7 +728,7 @@ class Player
 
 let globalSize = {
     w: 80,
-    h: 125
+    h: 115
 }
 
 let playerOne = new Player( {
@@ -738,7 +738,7 @@ let playerOne = new Player( {
     },
     size: {
         w: globalSize.w,
-        h: globalSize.h - 10
+        h: globalSize.h
     },
     velocity: {
         x: 0,
