@@ -869,7 +869,9 @@ function game ()
     {
         enemyOne.update( blockEE )
         enemyOne.health -= 0.1
-    } else
+    } 
+    
+    if( blockR )
     {
         enemyOne.health += regen
         if ( enemyOne.health > 300 )
@@ -901,7 +903,9 @@ function game ()
     {
         playerOne.update( blockPP )
         playerOne.health -= 0.1
-    } else
+    }
+
+    if ( block )
     {
         playerOne.health += regen
         if ( playerOne.health > 300 )
