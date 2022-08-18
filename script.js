@@ -738,7 +738,7 @@ let playerOne = new Player( {
     },
     size: {
         w: globalSize.w,
-        h: globalSize.h
+        h: globalSize.h - 10
     },
     velocity: {
         x: 0,
