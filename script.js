@@ -934,6 +934,7 @@ function game ()
         regen = 0
         gameOver.play()
         deathCurrentSprite += 1
+        playerOne.position.x = CANVAS_WIDTH / 2
         ctx.drawImage( ded, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT )
         playerOne.update( deathR[ deathCurrentSprite ] )
         setTimeout( () =>
@@ -948,8 +949,9 @@ function game ()
         regen = 0
         gameOver.play()
         deathCurrentSprite++
+        enemyOne.position.x = CANVAS_WIDTH / 2
         ctx.drawImage( ded, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT )
-        playerOne.update( death[ deathCurrentSprite ] )
+        enemyOne.update( death[ deathCurrentSprite ] )
 
         setTimeout( () =>
         {
