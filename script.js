@@ -3,9 +3,21 @@
 
 const canvas = document.getElementById( "screen" );
 const ctx = canvas.getContext( "2d" );
+const V = document.getElementById( "V" );
 
 const body = document.getElementById( "b" )
-
+let timer = document.getElementById( "time" )
+count = 50
+setInterval( () =>
+{
+    if ( count == 0 )
+    {
+        count = 0
+    } else
+    {
+        timer.innerText = count--
+    }
+}, 1000 )
 let E = 0
 let P = 0
 
@@ -24,13 +36,13 @@ const p2Hp = document.getElementById( "p2h" )
 p1Hp.style.height = "50px"
 p1Hp.style.border = "2px solid black"
 p1Hp.style.position = "absolute"
-p1Hp.style.backgroundColor = "red"
+p1Hp.style.backgroundColor = "greenyellow"
 
 p2Hp.style.height = "50px"
 p2Hp.style.border = "2px solid black"
 p2Hp.style.position = "absolute"
 p2Hp.style.left = "300px"
-p2Hp.style.backgroundColor = "blue"
+p2Hp.style.backgroundColor = "greenyellow"
 
 let hit = new Audio( "sfx/hit.m4a" );
 let hitR = new Audio( "sfx/hit.m4a" );
@@ -917,7 +929,7 @@ function game ()
 
 
 
-    if ( playerOne.health <= 0 )
+    if ( playerOne.health <= 0 || count == 0 && playerOne.health < enemyOne.health )
     {
         regen = 0
         gameOver.play()
@@ -931,7 +943,7 @@ function game ()
             alert( "YOU LOSE!" )
         }, 6000 )
     }
-    if ( enemyOne.health <= 0 )
+    if ( enemyOne.health <= 0 || count == 0 && enemyOne.health < playerOne.health )
     {
         regen = 0
         gameOver.play()
@@ -958,6 +970,9 @@ if ( playerOne.health <= 0 )
 }
 
 //controls
+
+let jumpE = false
+let jumpP = false
 
 window.addEventListener( "keydown", event =>
 {
@@ -1015,6 +1030,7 @@ window.addEventListener( "keyup", event =>
             P = 2
             break;
         case "w":
+            jumpP = true
             P = 4
             playerOne.velocity.y = -15
             break;
@@ -1044,6 +1060,7 @@ window.addEventListener( "keyup", event =>
             E = 0
             break;
         case "ArrowUp":
+            jumpE = true
             E = 4
             enemyOne.velocity.y = -15
             break;
@@ -1059,6 +1076,8 @@ window.addEventListener( "keyup", event =>
             break;
     }
 } );
+
+
 
 //controls (end)
 game()

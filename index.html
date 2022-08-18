@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <style>
+        @import url('http://fonts.cdnfonts.com/css/games');
         #p{
             display: flex;
             justify-content: flex-end;
@@ -11,22 +12,53 @@
             position: relative;
             width: 300px;
             height: 50px;
-            top: 310px;
+            left: 2px;
+            top: 300px;
         }
+        #under{
+            position: absolute;
+            border: 2px solid;
+            left: 2px;
+            top: 300px;
+            width: 600px;
+            height: 50px;
+            background-color: red;
+        }
+        #time{
+            display: flex;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 2px solid black;
+            background-color: rgb(27, 0, 0);
+            left: 275px;
+            color: rgb(250, 234, 169);
+            font-size: 30px;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Games', sans-serif;                              
+        }
+                
     </style>
 </head>
+
 <body id="b">
+
+    
     <canvas id="screen"></canvas>
+    <div id="under"></div>
     <div id="x">
         <div id="p" >
             <div id="p1h"></div>
         </div>
-        <div></div>
         <div id="e">
             <div id="p2h"></div>
         </div>
+        <div id="time">
+        50</div>
     </div>
-
+    
     <script src="/script.js"></script>
+    
 </body>
 </html>
