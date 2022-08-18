@@ -1,5 +1,5 @@
 /**@type {HTMLCanvasElement} */
-let start = new Audio( "sfx/start.m4a" )
+
 
 const canvas = document.getElementById( "screen" );
 const ctx = canvas.getContext( "2d" );
@@ -36,7 +36,7 @@ p2Hp.style.backgroundColor = "red"
 
 let hit = new Audio( "sfx/hit.m4a" );
 let hitR = new Audio( "sfx/hit.m4a" );
-
+let start = new Audio( "sfx/start.m4a" )
 let gameOver = new Audio( "sfx/gameOver.m4a" )
 
 const graviy = 1;
@@ -912,6 +912,7 @@ function game ()
 
     if ( playerOne.health <= 0 )
     {
+        healt = -100
         gameOver.play()
         deathCurrentSprite += 1
         ctx.drawImage( ded, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT )
@@ -925,6 +926,7 @@ function game ()
     }
     if ( enemyOne.health <= 0 )
     {
+        heaalt = -100
         gameOver.play()
         deathCurrentSprite++
         ctx.drawImage( ded, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT )
@@ -1048,7 +1050,8 @@ window.addEventListener( "keyup", event =>
 } );
 
 //controls (end)
-window.onload = ()=>{
-    game()
+game()
+window.onload = function ()
+{
     start.play()
 }
