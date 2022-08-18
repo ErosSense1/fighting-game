@@ -114,6 +114,9 @@ setInterval( () =>
     }
 }, 500 );
 
+let blockPP = createImg( "player/Yagami/block/Iori Yagami_102.png" )
+let blockEE = createImg( "player/Kyo/block/Ex Kyo_42.png" )
+
 let deathCurrentSprite = 0;
 
 let ded = createImg( "maps/ded.jpg" )
@@ -841,29 +844,7 @@ function game ()
 
     ctx.drawImage( backgroundChina, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT )
 
-    if ( !block )
-    {
-        enemyOne.health -= 0.1
-    } else
-    {
-        enemyOne.health += regen
-        if ( enemyOne.health > 300 )
-        {
-            enemyOne.health = 300
-        }
-    }
 
-    if ( !blockR )
-    {
-        playerOne.health -= 0.1
-    } else
-    {
-        playerOne.health += regen
-        if ( playerOne.health > 300 )
-        {
-            playerOne.health = 300
-        }
-    }
 
     if ( E == 0 )
     {
@@ -884,6 +865,17 @@ function game ()
     } else if ( E == 5 )
     {
         enemyOne.update( moveL[ moveCurrentSprite ] )
+    } else if ( !block && E == 9 )
+    {
+        enemyOne.update( blockEE )
+        enemyOne.health -= 0.1
+    } else
+    {
+        enemyOne.health += regen
+        if ( enemyOne.health > 300 )
+        {
+            enemyOne.health = 300
+        }
     }
 
     if ( P == 0 )
@@ -905,7 +897,20 @@ function game ()
     } else if ( P == 5 )
     {
         playerOne.update( moveR1[ moveCurrentSprite ] )
+    } else if ( !blockR && P == 9 )
+    {
+        playerOne.update( blockPP )
+        playerOne.health -= 0.1
+    } else
+    {
+        playerOne.health += regen
+        if ( playerOne.health > 300 )
+        {
+            playerOne.health = 300
+        }
     }
+
+
 
 
     if ( playerOne.health <= 0 )
@@ -956,6 +961,7 @@ window.addEventListener( "keydown", event =>
     {
         //player
         case "q":
+            P = 9
             blockR = false
             break;
         case "d":
@@ -968,6 +974,7 @@ window.addEventListener( "keydown", event =>
             break;
         //enemy
         case "0":
+            E = 9
             block = false
             break;
         case "ArrowRight":
@@ -992,6 +999,7 @@ window.addEventListener( "keyup", event =>
     {
         //player
         case "q":
+            P = 0
             blockR = true
             break;
         case "d":
@@ -1018,6 +1026,7 @@ window.addEventListener( "keyup", event =>
             break;
         //enemy
         case "0":
+            E = 0
             block = true
             break;
         case "ArrowRight":
