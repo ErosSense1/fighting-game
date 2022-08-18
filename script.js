@@ -1,6 +1,6 @@
 /**@type {HTMLCanvasElement} */
 let start = new Audio( "sfx/start.m4a" )
-start.play()
+
 const canvas = document.getElementById( "screen" );
 const ctx = canvas.getContext( "2d" );
 
@@ -1048,4 +1048,7 @@ window.addEventListener( "keyup", event =>
 } );
 
 //controls (end)
-game()
+window.onload = ()=>{
+    start.play()
+    game()
+}
