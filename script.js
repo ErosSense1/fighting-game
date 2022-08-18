@@ -1049,6 +1049,6 @@ window.addEventListener( "keyup", event =>
 
 //controls (end)
 window.onload = ()=>{
-    start.play()
     game()
+    start.play()
 }
