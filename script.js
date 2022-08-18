@@ -764,7 +764,7 @@ let enemyOne = new Player( {
 let att = false
 let attE = false
 
-
+let regen = 0.05
 
 function game ()
 {
@@ -846,7 +846,7 @@ function game ()
         enemyOne.health -= 0.1
     } else
     {
-        enemyOne.health += 0.05
+        enemyOne.health += regen
         if ( enemyOne.health > 300 )
         {
             enemyOne.health = 300
@@ -858,7 +858,7 @@ function game ()
         playerOne.health -= 0.1
     } else
     {
-        playerOne.health += 0.05
+        playerOne.health += regen
         if ( playerOne.health > 300 )
         {
             playerOne.health = 300
@@ -910,7 +910,7 @@ function game ()
 
     if ( playerOne.health <= 0 )
     {
-        healt = -100
+        regen = 0
         gameOver.play()
         deathCurrentSprite += 1
         ctx.drawImage( ded, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT )
@@ -924,7 +924,7 @@ function game ()
     }
     if ( enemyOne.health <= 0 )
     {
-        heaalt = -100
+        regen = 0
         gameOver.play()
         deathCurrentSprite++
         ctx.drawImage( ded, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT )
