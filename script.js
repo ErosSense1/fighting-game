@@ -24,15 +24,13 @@ const p2Hp = document.getElementById( "p2h" )
 p1Hp.style.height = "50px"
 p1Hp.style.border = "2px solid black"
 p1Hp.style.position = "absolute"
-p1Hp.style.top = "320px"
-p1Hp.style.backgroundColor = "blue"
+p1Hp.style.backgroundColor = "red"
 
 p2Hp.style.height = "50px"
 p2Hp.style.border = "2px solid black"
 p2Hp.style.position = "absolute"
-p2Hp.style.top = "320px"
 p2Hp.style.left = "300px"
-p2Hp.style.backgroundColor = "red"
+p2Hp.style.backgroundColor = "blue"
 
 let hit = new Audio( "sfx/hit.m4a" );
 let hitR = new Audio( "sfx/hit.m4a" );

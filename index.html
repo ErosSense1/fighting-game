@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        #p{
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+        }
+        #x{
+            position: relative;
+            width: 300px;
+            height: 50px;
+            top: 310px;
+        }
+    </style>
 </head>
 <body id="b">
     <canvas id="screen"></canvas>
-    <div id="p1h"></div>
-    <div id="p2h"></div>
+    <div id="x">
+        <div id="p" >
+            <div id="p1h"></div>
+        </div>
+        <div></div>
+        <div id="e">
+            <div id="p2h"></div>
+        </div>
+    </div>
 
     <script src="/script.js"></script>
 </body>
