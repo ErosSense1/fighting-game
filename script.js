@@ -7,12 +7,13 @@ const V = document.getElementById( "V" );
 
 const body = document.getElementById( "b" )
 let timer = document.getElementById( "time" )
-count = 50
+count = 60
 setInterval( () =>
 {
     if ( count == 0 )
     {
         count = 0
+        timer.innerText = 0
     } else
     {
         timer.innerText = count--
@@ -125,6 +126,8 @@ setInterval( () =>
 
     }
 }, 500 );
+let timesUp = createImg( "maps/timesUp.png" )
+let tie = createImg( "maps/tieGame.png" )
 
 let blockPP = createImg( "player/Yagami/block/Iori Yagami_102.png" )
 let blockEE = createImg( "player/Kyo/block/Ex Kyo_42.png" )
@@ -781,6 +784,8 @@ let attE = false
 
 let regen = 0.05
 
+let x = false
+
 function game ()
 {
 
@@ -888,7 +893,13 @@ function game ()
         enemyOne.health += regen
         if ( enemyOne.health > 300 )
         {
+            regen = 0
             enemyOne.health = 300
+        }
+
+        if ( enemyOne.health < 270 )
+        {
+            regen = 0.01
         }
     }
 
@@ -922,7 +933,13 @@ function game ()
         playerOne.health += regen
         if ( playerOne.health > 300 )
         {
+            regen = 0
             playerOne.health = 300
+        }
+
+        if ( playerOne.health < 270 )
+        {
+            regen = 0.01
         }
     }
 
@@ -963,6 +980,15 @@ function game ()
     p1Hp.style.width = playerOne.health + "px"
     p2Hp.style.width = enemyOne.health + "px"
 
+    if ( count == 0 && playerOne.health == enemyOne.health )
+    {
+        ctx.drawImage( timesUp, 50, CANVAS_HEIGHT / 2 - 50 )
+        setTimeout( u =>
+        {
+            window.location.reload()
+            alert( "IT`S A TIE!" )
+        }, 1000 )
+    }
     requestAnimationFrame( game )
 }
 
@@ -970,6 +996,8 @@ if ( playerOne.health <= 0 )
 {
     deathCurrentSprite = 0
 }
+
+
 
 //controls
 
