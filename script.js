@@ -3,7 +3,6 @@
 
 const canvas = document.getElementById( "screen" );
 const ctx = canvas.getContext( "2d" );
-const V = document.getElementById( "V" );
 
 const body = document.getElementById( "b" )
 let timer = document.getElementById( "time" )
@@ -1028,12 +1027,10 @@ window.addEventListener( "keydown", event =>
             break;
         case "ArrowRight":
             enemyOne.velocity.x = 7
-            enemyOne.size.w = 100
             E = 5
             break;
         case "ArrowLeft":
             enemyOne.velocity.x = -7
-            enemyOne.size.w = 100
             E = 1
             break;
     }
@@ -1081,12 +1078,10 @@ window.addEventListener( "keyup", event =>
             break;
         case "ArrowRight":
             enemyOne.velocity.x = 0
-            enemyOne.size.w = 80
             E = 2
             break;
         case "ArrowLeft":
             enemyOne.velocity.x = 0
-            enemyOne.size.w = 80
             E = 0
             break;
         case "ArrowUp":
@@ -1103,9 +1098,6 @@ window.addEventListener( "keyup", event =>
                 E = 0
                 attE = false
             }, 500 )
-            break;
-        case " ":
-            alert("PAUSE")
             break;
     }
 } );
