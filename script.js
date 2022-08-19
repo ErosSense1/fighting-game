@@ -1104,6 +1104,9 @@ window.addEventListener( "keyup", event =>
                 attE = false
             }, 500 )
             break;
+        case " ":
+            alert("PAUSE")
+            break;
     }
 } );
 
